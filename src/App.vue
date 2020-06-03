@@ -11,11 +11,10 @@ import { mapActions } from 'vuex'
 export default {
   mounted () {
     this.getAddress()
-    this.getFoodTypes()
-    this.getShops()
+    this.getUserInfo()
   },
   methods: {
-    ...mapActions(['getAddress', 'getFoodTypes', 'getShops'])
+    ...mapActions(['getAddress', 'getUserInfo'])
   },
   components: {
     FooterGuide
@@ -23,4 +22,9 @@ export default {
 }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus"></style>
+<style lang="stylus" rel="stylesheet/stylus">
+  .app
+    width 100%
+    height 100%
+    background #eef7f2
+</style>

@@ -6,10 +6,10 @@
     </div>
     <div class="shop_container">
       <ul class="shop_list" v-if="shops.length">
-        <li class="shop_li border-1px" v-for="shop in shops" :key="shop.id">
+        <li class="shop_li border-1px" v-for="shop in shops" :key="shop.id" @click="$router.push('/shop')">
           <a>
             <div class="shop_left">
-              <img class="shop_img" :src="baseImgUrl+shop.image_path">
+              <img class="shop_img" src="./images/food.jpg">
             </div>
             <div class="shop_right">
               <section class="shop_detail_header">
@@ -31,7 +31,7 @@
                   </div>
                 </section>
                 <section class="shop_rating_order_right">
-                  <span class="delivery_style delivery_right">{{ shop.delivery_mode.text }}</span>
+                  <span class="delivery_style delivery_right">精选首推</span>
                 </section>
               </section>
               <section class="shop_distance">
@@ -59,11 +59,6 @@
   import Star from '../Star/Star'
   export default {
     name: 'ShopList',
-    data () {
-      return {
-        baseImgUrl: 'http://cangdu.org:8001/img/'
-      }
-    },
     computed: {
       ...mapState(['shops'])
     },
@@ -140,7 +135,7 @@
                     float left
                     font-size 10px
                     color #999
-                    border 1px solid #f1f1f1
+                    border 1px solid #a4cab6
                     padding 0 2px
                     border-radius 2px
               .shop_rating_order
@@ -174,11 +169,11 @@
                   .delivery_left
                     color #fff
                     margin-right -10px
-                    background-color #02a774
-                    border 1px solid #02a774
+                    background-color #2376b7
+                    border 1px solid #2376b7
                   .delivery_right
-                    color #02a774
-                    border 1px solid #02a774
+                    color #2376b7
+                    border 1px solid #2376b7
               .shop_distance
                 clearFix()
                 width 100%

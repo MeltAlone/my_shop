@@ -4,7 +4,7 @@
       <span class="item_icon">
         <i class="iconfont icon-waimai"></i>
       </span>
-      <span>外卖</span>
+      <span>美食</span>
     </span>
     <a href="javascript:;" class="guide_item" :class="{on: '/search'===$route.path}" @click="goTo('/search')">
       <span class="item_icon">
@@ -47,7 +47,7 @@ export default {
     left 0
     right 0
     bottom 0
-    background-color #fff
+    background-color #eef7f2
     width 100%
     height 50px
     display flex
@@ -60,7 +60,7 @@ export default {
       margin 5px
       color #999999
       &.on
-        color #02a774
+        color #2376b7
       span
         font-size 12px
         margin-top 2px

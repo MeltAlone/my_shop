@@ -23,17 +23,11 @@ import 'swiper/css/swiper.min.css'
 import { mapState, mapActions } from 'vuex'
 
 export default {
+  name: 'HomeSwiper',
   data () {
     return {
       baseImgUrl: 'https://fuss10.elemecdn.com'
     }
-  },
-  created () {
-    // 获取食物类型
-    this.getFoodTypes();
-  },
-  mounted () {
-
   },
   watch: {
     types(value){
@@ -49,7 +43,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['types']),
+    ...mapState(['types', 'userInfo', 'address']),
 
     // 食物类型数组分为二维数组，一项8个值
     typeArr () {
@@ -70,11 +64,7 @@ export default {
       }
       return resultArr;
     }
-  },
-  methods: {
-    ...mapActions(['getFoodTypes'])
-  },
-  name: 'HomeSwiper'
+  }
 }
 </script>
 
@@ -83,7 +73,7 @@ export default {
     bottom-border-1px(#e4e4e4)
     margin-top 45px
     height 200px
-    background #fff
+    background #eef7f2
     .swiper-container
       width 100%
       height 100%
@@ -115,5 +105,5 @@ export default {
               color #666
       .swiper-pagination
         >span.swiper-pagination-bullet-active
-          background #02a774
+          background #2376b7
 </style>

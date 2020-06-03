@@ -20,7 +20,7 @@ export default {
 
 <style lang="stylus" rel="stylesheet/stylus">
   .home_header
-    background-color #02a774
+    background-color #2376b7
     position fixed
     z-index 100
     left 0
@@ -36,26 +36,26 @@ export default {
       height 50%
       .icon-sousuo
         font-size 25px
-        color #fff
+        color #eef7f2
     .header_title
       position absolute
       top 50%
       left 50%
       transform translate(-50%, -50%)
       width 50%
-      color #fff
+      color #eef7f2
       text-align center
       .header_title_text
         font-size 20px
-        color #fff
+        color #eef7f2
         display block
     .header_login
       font-size 14px
-      color #fff
+      color #eef7f2
       position absolute
       right 15px
       top 50%
       transform translateY(-50%)
       .header_login_text
-        color #fff
+        color #eef7f2
 </style>

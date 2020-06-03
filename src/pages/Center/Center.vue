@@ -2,17 +2,17 @@
   <section class="center">
     <HomeHeader title="我的" />
     <section class="center-number">
-      <router-link to="/login" class="center-link" tag="a">
+      <router-link :to="userInfo._id ? '/userinfo' : '/login'" class="center-link" tag="a">
         <div class="center_image">
           <i class="iconfont icon-person"></i>
         </div>
         <div class="user-info">
-          <p class="user-info-top">登录/注册</p>
+          <p class="user-info-top" v-if="!userInfo.phone">{{ userInfo.name || `登录&注册` }}</p>
           <p>
                 <span class="user-icon">
                   <i class="iconfont icon-shouji icon-mobile"></i>
                 </span>
-            <span class="icon-mobile-number">暂无绑定手机号</span>
+            <span class="icon-mobile-number">{{ userInfo.phone || `未绑定手机号` }}</span>
           </p>
         </div>
         <span class="arrow">
@@ -23,12 +23,12 @@
     <section class="center_info_data border-1px">
       <ul class="info_data_list">
         <a href="javascript:" class="info_data_link">
-          <span class="info_data_top"><span>0.00</span>元</span>
-          <span class="info_data_bottom">我的余额</span>
+          <span class="info_data_top"><span>999</span>元</span>
+          <span class="info_data_bottom">钱包余额</span>
         </a>
         <a href="javascript:" class="info_data_link">
           <span class="info_data_top"><span>0</span>个</span>
-          <span class="info_data_bottom">我的优惠</span>
+          <span class="info_data_bottom">优惠劵</span>
         </a>
         <a href="javascript:" class="info_data_link">
           <span class="info_data_top"><span>0</span>分</span>
@@ -61,13 +61,13 @@
               </span>
         </div>
       </a>
-      <!-- 硅谷外卖会员卡 -->
+      <!-- 美味随行会员卡 -->
       <a href="javascript:" class="my_order">
             <span>
               <i class="iconfont icon-vip"></i>
             </span>
         <div class="my_order_div">
-          <span>硅谷外卖会员卡</span>
+          <span>美味随行会员卡</span>
           <span class="my_order_icon">
                 <i class="iconfont icon-jiantou1"></i>
               </span>
@@ -88,13 +88,34 @@
         </div>
       </a>
     </section>
+    <section class="center_my_order border-1px">
+      <mt-button type="danger" style="width: 100%" v-if="userInfo._id" @click="logout">退出登陆</mt-button>
+    </section>
   </section>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import { MessageBox, Toast } from 'mint-ui'
 import HomeHeader from '../../components/HomeHeader/HomeHeader'
 export default {
   name: 'Center',
+  computed: {
+    ...mapState(['userInfo'])
+  },
+  methods: {
+    logout(){
+      MessageBox.confirm("确认要退出吗？").then(
+        action => {
+          this.$store.dispatch('logout')
+          Toast("已退出登录")
+        },
+        action => {
+          console.log("cancel")
+        }
+      )
+    }
+  },
   components: {
     HomeHeader
   }
@@ -112,7 +133,7 @@ export default {
         clearFix()
         position relative
         display block
-        background #02a774
+        background #2376b7
         padding 20px 10px
         .center_image
           float left
@@ -131,7 +152,7 @@ export default {
           p
             font-weight: 700
             font-size 18px
-            color #fff
+            color #eef7f2
             &.user-info-top
               padding-bottom 8px
             .user-icon
@@ -145,7 +166,7 @@ export default {
                 vertical-align text-top
             .icon-mobile-number
               font-size 14px
-              color #fff
+              color #eef7f2
         .arrow
           width 12px
           height 12px
@@ -153,12 +174,12 @@ export default {
           right 15px
           top 40%
           .icon-jiantou1
-            color #fff
+            color #eef7f2
             font-size 5px
     .center_info_data
       bottom-border-1px(#e4e4e4)
       width 100%
-      background #fff
+      background #eef7f2
       overflow hidden
       .info_data_list
         clearFix()
@@ -176,7 +197,7 @@ export default {
             span
               display inline-block
               font-size 30px
-              color #f90
+              color #d2b42c
               font-weight 700
               line-height 30px
           .info_data_bottom
@@ -188,16 +209,16 @@ export default {
         .info_data_link:nth-of-type(2)
           .info_data_top
             span
-              color #ff5f3e
+              color #ed2f6a
         .info_data_link:nth-of-type(3)
           border 0
           .info_data_top
             span
-              color #6ac20b
+              color #2c9678
     .center_my_order
       top-border-1px(#e4e4e4)
       margin-top 10px
-      background #fff
+      background #eef7f2
       .my_order
         display flex
         align-items center
@@ -211,13 +232,13 @@ export default {
             margin-left -10px
             font-size 30px
           .icon-order-s
-            color #02a774
+            color #2376b7
           .icon-jifen
-            color #ff5f3e
+            color #ed2f6a
           .icon-vip
-            color #f90
+            color #d2b42c
           .icon-fuwu
-            color #02a774
+            color #2376b7
         .my_order_div
           width 100%
           border-bottom 1px solid #f1f1f1

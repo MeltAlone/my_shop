@@ -19,7 +19,8 @@ export default {
 }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
+  @import "../../common/stylus/mixins.styl"
   .order  //订单
     width 100%
     .order_no_login
@@ -37,9 +38,9 @@ export default {
         color #6a6a6a
       >button
         display inline-block
-        background #02a774
+        background #2376b7
         font-size 14px
-        color #fff
+        color #eef7f2
         border 0
         outline none
         border-radius 5px
