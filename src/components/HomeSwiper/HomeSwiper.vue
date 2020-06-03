@@ -20,7 +20,7 @@
 <script>
 import Swiper from 'swiper'
 import 'swiper/css/swiper.min.css'
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   name: 'HomeSwiper',

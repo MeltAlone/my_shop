@@ -160,7 +160,7 @@
     .menu-wrapper
       flex: 0 0 80px
       width: 80px
-      background: #a4cab6
+      background: #eef7f2
       .menu-item
         display: table
         height: 54px
@@ -171,7 +171,7 @@
           position: relative
           z-index: 10
           margin-top: -1px
-          background: #eef7f2
+          background: #a4cab6
           color: $green
           font-weight: 700
           .text
@@ -198,7 +198,7 @@
         line-height: 26px
         border-left: 2px solid #d9dde1
         font-size: 12px
-        color: rgb(147, 153, 159)
+        color: #eef7f2
         background: #a4cab6
       .food-item
         display: flex

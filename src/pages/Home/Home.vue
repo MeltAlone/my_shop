@@ -12,16 +12,20 @@
         </span>
       </router-link>
     </HomeHeader>
-    <!--首页导航-->
-    <HomeSwiper v-if="types.length" />
-    <img src="./images/home_back.svg" alt="back" v-else>
-    <!--首页附近商家-->
-      <ShopList />
+    <div class="home-content-wrapper">
+      <div class="home-content">
+        <!--首页导航-->
+        <HomeSwiper v-if="types.length" />
+        <img src="./images/home_back.svg" alt="back" v-else>
+        <!--首页附近商家-->
+        <ShopList />
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
-import BScroll from 'better-scroll'
+import BScroll from "better-scroll"
 import { mapState, mapActions } from 'vuex'
 import HomeHeader from '../../components/HomeHeader/HomeHeader'
 import HomeSwiper from '../../components/HomeSwiper/HomeSwiper'
@@ -43,6 +47,15 @@ export default {
   },
   computed: {
     ...mapState(['address', 'types', 'shops', 'userInfo'])
+  },
+  watch: {
+    types(value){
+      this.$nextTick(() => {
+        new BScroll('.home-content-wrapper', {
+          click: true
+        })
+      })
+    }
   }
 }
 </script>
