@@ -7,14 +7,14 @@
 
 ## 结构目录
 ### 路由划分
-一级路由
+1. 一级路由
 - /home主页，包括顶部、轮播图（swiper）、附近店铺列表（better-scroll）
 - /shop店铺主页
 - /search搜索页，关键字搜索店铺
 - /order订单页
 - /center个人中心
 - /login登录页
-二级路由（查看店铺详情时）
+2. 二级路由（查看店铺详情时）
 - /goods商品列表
 - /ratings评价列表
 - /info详情
